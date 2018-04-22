@@ -21,24 +21,6 @@ env:
   - distribution: centos
     version: 7
     playbook: push
-  - distribution: debian
-    version: jessie
-    playbook: opensource
-  - distribution: debian
-    version: jessie
-    playbook: template
-  - distribution: debian
-    version: jessie
-    playbook: push
-  - distribution: debian
-    version: stretch
-    playbook: opensource
-  - distribution: debian
-    version: stretch
-    playbook: template
-  - distribution: debian
-    version: stretch
-    playbook: push
   - distribution: ubuntu
     version: trusty
     playbook: opensource

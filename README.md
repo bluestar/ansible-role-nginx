@@ -15,7 +15,7 @@ This role was developed using Ansible 2.5.0. Backwards compatibility is not guar
 
 Use `ansible-galaxy install bluestar.nginx` to install the role on your system.
 
-This role was only tested on CentOS 7. It may work on other systems, suppoerted by NGINX [NGINX Open Source](https://nginx.org/en/linux_packages.html#mainline).
+This role was only tested on CentOS 7. It may work on other systems, supported by NGINX [NGINX Open Source](https://nginx.org/en/linux_packages.html#mainline).
 
 Role Variables
 --------------
@@ -93,7 +93,7 @@ This is a sample playbook file for deploying the Ansible Galaxy NGINX role to a 
 
 To run any of the above sample playbooks create a `setup-nginx.yml` file and paste the contents. Executing the Ansible Playbook is then as simple as executing `ansible-playbook setup-nginx.yml`.
 
-Alternatively, you can also clone this repository instead of installing it from Ansible Galaxy. If you decide to do so, replace the role variable in the previous sample playbooks from `nginxinc.nginx` to `ansible-role-nginx`.
+Alternatively, you can also clone this repository instead of installing it from Ansible Galaxy. If you decide to do so, replace the role variable in the previous sample playbooks from `bluestar.nginx` to `ansible-role-nginx`.
 
 License
 -------

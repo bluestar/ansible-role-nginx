@@ -28,8 +28,8 @@ amplify_key: null
 
 # Enable NGINX status data.
 # Will enable 'stub_status' in NGINX Open Source and 'status' in NGINX Plus.
-# Default is false.
-status_enable: false
+# Default is true.
+status_enable: true
 
 # Enable NGINX Plus REST API, write access to the REST API, and NGINX Plus dashboard.
 # Default is false.

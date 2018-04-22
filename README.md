@@ -1,77 +1,21 @@
 Ansible NGINX Role
 ==================
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-nginxinc.nginx-5bbdbf.svg)](https://galaxy.ansible.com/nginxinc/nginx)
-[![Build Status](https://travis-ci.org/nginxinc/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/nginxinc/ansible-role-nginx)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-bluestar.nginx-5bbdbf.svg)](https://galaxy.ansible.com/bluestar/nginx)
+[![Build Status](https://travis-ci.org/bluestar/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/bluestar/ansible-role-nginx)
 
-This role installs NGINX Open Source or NGINX Plus on your target host.
+__Important: This is a fork of [nginxinc.nginx role](https://galaxy.ansible.com/nginxinc/nginx/).__ 
+
+The function of the role is to install NGINX Open Source on your target host with defaults different from the original role.
 
 Requirements
 ------------
 
-This role was developed using Ansible 2.4.0.0. Backwards compatibility is not guaranteed.
+This role was developed using Ansible 2.5.0. Backwards compatibility is not guaranteed.
 
-Use `ansible-galaxy install nginxinc.nginx` to install the role on your system.
+Use `ansible-galaxy install bluestar.nginx` to install the role on your system.
 
-It supports all platforms supported by [NGINX Open Source](https://nginx.org/en/linux_packages.html#mainline) and [NGINX Plus](https://www.nginx.com/products/technical-specs/):
-
-**NGINX Open Source:**
-
-    CentOS:
-      versions:
-        - 6
-        - 7
-    RedHat:
-      versions:
-        - 6
-        - 7
-    Debian:
-      versions:
-        - jessie
-        - stretch
-    Ubuntu:
-      versions:
-        - trusty
-        - xenial
-        - zesty
-    SUSE/SLES:
-      versions:
-        - 12
-
-**NGINX Plus:**
-
-    CentOS:
-      versions:
-        - 6
-        - 7
-    RedHat:
-      versions:
-        - 6
-        - 7
-    Debian:
-      versions:
-        - wheezy
-        - jessie
-        - stretch
-    Ubuntu:
-      versions:
-        - trusty
-        - xenial
-        - zesty
-    SUSE/SLES:
-      versions:
-        - 12
-    FreeBSD:
-      versions:
-        - 10.3
-        - 11
-    Oracle Linux:
-      versions:
-        - 6.5
-        - 7
-    Amazon Linux:
-      versions:
-        - 2016.09
+This role was only tested on CentOS 7. It may work on other systems, suppoerted by NGINX [NGINX Open Source](https://nginx.org/en/linux_packages.html#mainline).
 
 Role Variables
 --------------
@@ -79,49 +23,25 @@ Role Variables
 This role has multiple variables. The defaults for all these variables are the following:
 
     ---
-    # Specify which version of NGINX you want to install.
-    # Options are 'opensource' or 'plus'.
-    # Default is 'opensource'.
-    type: opensource
-
     # Specify which branch of NGINX Open Source you want to install.
     # Options are 'mainline' or 'stable'.
     # Default is mainline.
     branch: mainline
 
-    # Install nginscript, perl, waf (NGINX Plus only), geoip, image-filter, rtmp and/or xslt modules.
+    # Install nginscript, perl, geoip, image-filter, rtmp and/or xslt modules.
     # Default is false.
     modules:
       njs: false
       perl: false
-      waf: false
       geoip: false
       image_filter: false
       rtmp: false
       xslt: false
 
-    # Install NGINX Amplify.
-    # Use your NGINX Amplify API key.
-    # Default is null.
-    amplify_enable: false
-    amplify_key: null
-
     # Enable NGINX status data.
     # Will enable 'stub_status' in NGINX Open Source and 'status' in NGINX Plus.
-    # Default is false.
-    status_enable: false
-
-    # Enable NGINX Plus REST API, write access to the REST API, and NGINX Plus dashboard.
-    # Default is false.
-    rest_api_enable: false
-    rest_api_write: false
-    rest_api_dashboard: false
-
-    # Location of your NGINX Plus license in your local machine.
-    # Default is the files folder within the NGINX Ansible role.
-    license:
-      certificate: license/nginx-repo.crt
-      key: license/nginx-repo.key
+    # Default is true.
+    status_enable: true
 
     # Enable uploading NGINX configuration files to your system.
     # Default for uploading files is false.
@@ -161,17 +81,7 @@ This is a sample playbook file for deploying the Ansible Galaxy NGINX role in a 
     - hosts: localhost
       become: true
       roles:
-        - role: nginxinc.nginx
-
-This is a sample playbook file for deploying the Ansible Galaxy NGINX role in a localhost and installing NGINX Plus.
-
-    ---
-    - hosts: localhost
-      become: true
-      roles:
-        - role: nginxinc.nginx
-      vars:
-        - type: plus
+        - role: bluestar.nginx
 
 This is a sample playbook file for deploying the Ansible Galaxy NGINX role to a dynamic inventory containing the `nginx` tag.
 
@@ -179,7 +89,7 @@ This is a sample playbook file for deploying the Ansible Galaxy NGINX role to a 
     - hosts: tag_nginx
       remote_user: root
       roles:
-        - role: nginxinc.nginx
+        - role: bluestar.nginx
 
 To run any of the above sample playbooks create a `setup-nginx.yml` file and paste the contents. Executing the Ansible Playbook is then as simple as executing `ansible-playbook setup-nginx.yml`.
 
@@ -188,11 +98,11 @@ Alternatively, you can also clone this repository instead of installing it from 
 License
 -------
 
-[Apache License, Version 2.0](https://github.com/nginxinc/ansible-role-nginx/blob/master/LICENSE)
+[Apache License, Version 2.0](https://github.com/bluestar/ansible-role-nginx/blob/master/LICENSE)
 
 Author Information
 ------------------
 
-Alessandro Fael Garcia
-
-[NGINX Inc](https://www.nginx.com/)
+1. Alessandro Fael Garcia
+1. [NGINX Inc](https://www.nginx.com/)
+1. Mikhail Krivoshein
